@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quikieapps</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        
+    #row1,#row2,#row3{
+        border: solid black 1px;
+        width: 190px; height:190px;
+        border-radius:50px;
+        padding:50px;}
+    h2{
+        padding: 10px;
+    }
+    div{
+        padding-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-dark">
+        <div class="container">
+          <a class="navbar-brand text-light">
+            Quikieapps
+          </a>
+        </div>
+      </nav>
+    <div class="box1" >
+        
+        <div  id="row1"><img src="./Assets/GOOGL.png" alt="sorry" width="50px" height="50px" ><br><h2>Google</h3><br> </div>
+        <div  id="row2"><img src="./Assets/AMZN.svg" alt="sorry" width="50px" height="50px"><br><h2>Amazon</h3><br> </div>
+        <div  id="row3"><img src="./Assets/FB.png" alt="sorry" width="50px" height="50px"><br><h2>Meta</h3><br> </div>
+        
+    </div>
+    <div>
+        <table class="table table-bordered" style="margin-top: 90px">
+            <thead>
+                <tr>
+                    <th scope="col">Crypto Name</th>
+                    <th scope="col">Crypto Symbol</th>
+                    <th scope="col">Market Cap</th>
+                    <th scope="col">Current Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+    <!--<script src="crpto.js"></script>-->
+    <script src="s.js"></script>
+</body>
+</html>
