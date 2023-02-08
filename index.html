@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Cryptocurrency Listing</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center mt-3">Cryptocurrency Listing</h1>
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Price (USD)</th>
+          <th>24h Change</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="crypto-list">
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // List of cryptocurrencies to fetch data for
+    const cryptoList = ['BTC', 'ETH', 'LTC', 'XRP', 'BCH', 'EOS', 'BNB', 'USDT', 'BSV', 'ADA'];
+
+    // Fetch cryptocurrency data from CoinAPI
+    function fetchData() {
+      cryptoList.forEach(symbol => {
+        fetch(`https://rest.coinapi.io/v1/exchangerate/${symbol}/USD?apikey=5EB714C4-808E-417C-9435-78400181EB5E`)
+          .then(response => response.json())
+          .then(data => {
+            const rate = data.rate;
+            let output = `
+              <tr>
+                <td>${symbol}</td>
+                <td>${data.asset_id_quote}</td>
+                <td>$ ${rate}</td>
+                <td>N/A</td>
+                <td>
+                  <button class="btn btn-buy btn-success">Buy</button>
+                  <button class="btn btn-sell btn-danger">Sell</button>
+                </td>
+              </tr>
+            `;
+            document.getElementById("crypto-list").innerHTML += output;
+          });
+      });
+    }
+
+    // Call the fetchData function
+    fetchData();
+  </script>
+</body>
+
+</html>
